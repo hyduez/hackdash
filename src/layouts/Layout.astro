@@ -1,3 +1,9 @@
+---
+const title = "Hackdash";
+const description = "Build Your own TUI and Represent your /home/";
+const image = "assets/hack.jpg";
+---
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,7 +12,21 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>Hackdash</title>
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
     </head>
     <body>
         <script is:inline src="https://cdn.usal.dev/latest"></script>
