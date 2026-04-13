@@ -18,6 +18,8 @@
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#projects">Projects</a>
+                <a href="#stack">Stack</a>
+                <a href="#faq">FAQ</a>
                 <a href="#prizes">Prizes</a>
                 <a
                     href="https://github.com/hyduez/hackdash-ec"
@@ -101,6 +103,112 @@
                                 target="_blank">View repository</a
                             >
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="stack" class="tech-section">
+            <h2
+                data-usal="fade duration-500"
+                class="section-title"
+                style="padding-bottom: 60px;"
+            >
+                Choose Your <span style="color: #c41e3a;">Stack</span>
+            </h2>
+            <div class="tech-grid">
+                <div class="tech-card" data-usal="fade-u duration-600">
+                    <div class="tech-header">
+                        <h3>Textual <span>(Python)</span></h3>
+                        <span class="xp-badge easy">Beginner Friendly</span>
+                    </div>
+                    <p>
+                        Build beautiful TUIs with Python and CSS-like styling.
+                        Incredible for rapid prototyping and clean code.
+                    </p>
+                    <div class="bonus-points">
+                        <span class="star">★</span> Bonus: +10 points for custom widgets
+                    </div>
+                </div>
+
+                <div class="tech-card" data-usal="fade-u duration-700">
+                    <div class="tech-header">
+                        <h3>Bubble Tea <span>(Go)</span></h3>
+                        <span class="xp-badge medium">Intermediate</span>
+                    </div>
+                    <p>
+                        The Elm architecture for terminal applications. Fun,
+                        extremely fast, and ridiculously robust.
+                    </p>
+                    <div class="bonus-points" style="color: #00add8;">
+                        <span class="star">★</span> Bonus: +20 points for smooth animations
+                    </div>
+                </div>
+
+                <div class="tech-card" data-usal="fade-u duration-800">
+                    <div class="tech-header">
+                        <h3>Ratatui <span>(Rust)</span></h3>
+                        <span class="xp-badge hard">Advanced</span>
+                    </div>
+                    <p>
+                        A Rust library to build rich terminal UIs. For those who
+                        love zero-cost abstractions and raw performance.
+                    </p>
+                    <div class="bonus-points" style="color: #dea584;">
+                        <span class="star">★</span> Bonus: +50 points for surviving
+                        the borrow checker
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="faq-section">
+            <h2 data-usal="fade duration-500" class="section-title">
+                Frequently Asked <span style="color: limegreen;">Questions</span
+                >
+            </h2>
+            <div
+                class="carousel-wrapper"
+                data-usal="fade-l duration-800 delay-200"
+            >
+                <div class="faq-carousel">
+                    <div class="faq-card">
+                        <h4>What is a TUI?</h4>
+                        <p>
+                            A Terminal User Interface. It's like a GUI, but it
+                            runs entirely inside your command line! Think retro
+                            hacker vibes meets modern design.
+                        </p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Who can participate?</h4>
+                        <p>
+                            Any teenager (18 or under) with a passion for coding
+                            and building cool things. No prior TUI experience
+                            required!
+                        </p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Does it cost anything?</h4>
+                        <p>
+                            Absolutely nothing. You don't need expensive
+                            hardware to make free software, and we even ship you
+                            the hardware prizes globally for free.
+                        </p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Can I use other languages?</h4>
+                        <p>
+                            Yes! As long as your project runs in the terminal
+                            and tracks something interesting, you're good to
+                            ship it.
+                        </p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>How do I submit?</h4>
+                        <p>
+                            Just build your project, open-source it on GitHub,
+                            and submit the repository link through the Hack Club
+                            portal.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -429,6 +537,171 @@
 
     .project-card a:hover::after {
         transform: translateX(4px);
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin-bottom: 2rem;
+        color: #fff;
+    }
+
+    .tech-section {
+        padding: 4rem var(--gutter);
+    }
+
+    .tech-grid {
+        --container-width: 1400px;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .tech-card {
+        background: #111;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 1.5rem;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tech-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 255, 255, 0.15);
+        background: #151515;
+    }
+
+    .tech-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+
+    .tech-header h3 {
+        font-size: 1.5rem;
+        margin: 0;
+        color: #fff;
+    }
+
+    .tech-header h3 span {
+        display: block;
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 4px;
+    }
+
+    .xp-badge {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .xp-badge.easy {
+        background: rgba(50, 205, 50, 0.1);
+        color: limegreen;
+    }
+    .xp-badge.medium {
+        background: rgba(0, 173, 216, 0.1);
+        color: #00add8;
+    }
+    .xp-badge.hard {
+        background: rgba(222, 165, 132, 0.1);
+        color: #dea584;
+    }
+
+    .tech-card p {
+        color: #999;
+        line-height: 1.6;
+        flex: 1;
+        margin-bottom: 2rem;
+    }
+
+    .bonus-points {
+        font-family: ui-monospace, monospace;
+        font-size: 0.9rem;
+        color: #c41e3a;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .faq-section {
+        padding: 6rem 0;
+        overflow: hidden;
+    }
+
+    .carousel-wrapper {
+        width: 100%;
+        padding: 2rem var(--gutter);
+    }
+
+    .faq-carousel {
+        display: flex;
+        gap: 24px;
+        scroll-snap-type: x mandatory;
+        scroll-padding: var(--gutter);
+        padding-bottom: 2rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .faq-carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .faq-card {
+        min-width: 350px;
+        max-width: 450px;
+        flex: 0 0 auto;
+        background: linear-gradient(145deg, #111, #0a0a0a);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease;
+    }
+
+    .faq-card:hover {
+        transform: scale(1.02);
+        border-color: limegreen;
+    }
+
+    .faq-card h4 {
+        font-size: 1.3rem;
+        color: #fff;
+        margin: 0 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .faq-card h4::before {
+        content: ">";
+        color: #c41e3a;
+        font-family: monospace;
+        font-weight: bold;
+    }
+
+    .faq-card p {
+        color: #999;
+        line-height: 1.6;
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+        .faq-card {
+            min-width: 85vw;
+            padding: 1.5rem;
+        }
     }
 
     .gallery-section {
