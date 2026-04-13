@@ -165,52 +165,66 @@
                 Frequently Asked <span style="color: limegreen;">Questions</span
                 >
             </h2>
+
             <div
-                class="carousel-wrapper"
+                class="carousel-container"
                 data-usal="fade-l duration-800 delay-200"
             >
-                <div class="faq-carousel">
-                    <div class="faq-card">
-                        <h4>What is a TUI?</h4>
-                        <p>
-                            A Terminal User Interface. It's like a GUI, but it
-                            runs entirely inside your command line! Think retro
-                            hacker vibes meets modern design.
-                        </p>
-                    </div>
-                    <div class="faq-card">
-                        <h4>Who can participate?</h4>
-                        <p>
-                            Any teenager (18 or under) with a passion for coding
-                            and building cool things. No prior TUI experience
-                            required!
-                        </p>
-                    </div>
-                    <div class="faq-card">
-                        <h4>Does it cost anything?</h4>
-                        <p>
-                            Absolutely nothing. You don't need expensive
-                            hardware to make free software, and we even ship you
-                            the hardware prizes globally for free.
-                        </p>
-                    </div>
-                    <div class="faq-card">
-                        <h4>Can I use other languages?</h4>
-                        <p>
-                            Yes! As long as your project runs in the terminal
-                            and tracks something interesting, you're good to
-                            ship it.
-                        </p>
-                    </div>
-                    <div class="faq-card">
-                        <h4>How do I submit?</h4>
-                        <p>
-                            Just build your project, open-source it on GitHub,
-                            and submit the repository link through the Hack Club
-                            portal.
-                        </p>
+                <button class="carousel-nav prev" aria-label="Previous question"
+                    >&lt;</button
+                >
+
+                <div class="carousel-wrapper">
+                    <div class="faq-carousel" id="faqCarousel">
+                        <div class="faq-card">
+                            <h4>What is a TUI?</h4>
+                            <p>
+                                A Terminal User Interface. It's like a GUI, but
+                                it runs entirely inside your command line! Think
+                                retro hacker vibes meets modern design.
+                            </p>
+                        </div>
+                        <div class="faq-card">
+                            <h4>Who can participate?</h4>
+                            <p>
+                                Any teenager (18 or under) with a passion for
+                                coding and building cool things. No prior TUI
+                                experience required!
+                            </p>
+                        </div>
+                        <div class="faq-card">
+                            <h4>Does it cost anything?</h4>
+                            <p>
+                                Absolutely nothing. You don't need expensive
+                                hardware to make free software, and we even ship
+                                you the hardware prizes globally for free.
+                            </p>
+                        </div>
+                        <div class="faq-card">
+                            <h4>Can I use other languages?</h4>
+                            <p>
+                                No. This YSWS aims to be Specific and Small. The
+                                recomended stacks must to be followed to keep it
+                                simple. You can use any starter-kit.
+                            </p>
+                        </div>
+                        <div class="faq-card">
+                            <h4>How do I submit?</h4>
+                            <p>
+                                Just build your project, open-source it on
+                                GitHub, make a release, and submit the
+                                repository link through email. You can deploy a
+                                ssh server with Wish too, like <strong
+                                    >$ ssh hackdash.dousec.org</strong
+                                >
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <button class="carousel-nav next" aria-label="Next question"
+                    >&gt;</button
+                >
             </div>
         </section>
         <section id="prizes" class="gallery-section">
@@ -635,20 +649,45 @@
 
     .faq-section {
         padding: 6rem 0;
-        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel-container {
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding: 0 var(--gutter);
+        gap: 1rem;
     }
 
     .carousel-wrapper {
         width: 100%;
-        padding: 2rem var(--gutter);
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 5%,
+            black 95%,
+            transparent
+        );
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 5%,
+            black 95%,
+            transparent
+        );
     }
 
     .faq-carousel {
         display: flex;
         gap: 24px;
+        padding: 2rem 5%;
+        overflow-x: auto;
         scroll-snap-type: x mandatory;
-        scroll-padding: var(--gutter);
-        padding-bottom: 2rem;
+        scroll-behavior: smooth;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
@@ -658,20 +697,19 @@
     }
 
     .faq-card {
-        min-width: 350px;
-        max-width: 450px;
-        flex: 0 0 auto;
+        flex: 0 0 350px;
         background: linear-gradient(145deg, #111, #0a0a0a);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 1.5rem;
         padding: 2.5rem;
-        scroll-snap-align: start;
-        transition: transform 0.3s ease;
+        scroll-snap-align: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .faq-card:hover {
-        transform: scale(1.02);
+        transform: translateY(-8px) scale(1.02);
         border-color: limegreen;
+        box-shadow: 0 10px 30px -10px rgba(50, 205, 50, 0.15);
     }
 
     .faq-card h4 {
@@ -686,7 +724,7 @@
     .faq-card h4::before {
         content: ">";
         color: #c41e3a;
-        font-family: monospace;
+        font-family: ui-monospace, monospace;
         font-weight: bold;
     }
 
@@ -697,10 +735,46 @@
         font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
+    .carousel-nav {
+        background: rgba(10, 10, 10, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-family: ui-monospace, monospace;
+        font-size: 1.5rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: all 0.2s ease;
+        z-index: 10;
+        flex-shrink: 0;
+    }
+
+    .carousel-nav:hover {
+        border-color: limegreen;
+        color: limegreen;
+        box-shadow: 0 0 15px rgba(50, 205, 50, 0.2);
+        transform: scale(1.1);
+    }
+
+    .carousel-nav:active {
+        transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
         .faq-card {
-            min-width: 85vw;
-            padding: 1.5rem;
+            flex: 0 0 85vw;
+            padding: 1.8rem;
+        }
+
+        .carousel-nav {
+            display: none;
+        }
+
+        .carousel-wrapper {
+            -webkit-mask-image: none;
         }
     }
 
@@ -1014,3 +1088,23 @@
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.getElementById("faqCarousel");
+        const prevBtn = document.querySelector(".carousel-nav.prev");
+        const nextBtn = document.querySelector(".carousel-nav.next");
+
+        if (carousel && prevBtn && nextBtn) {
+            const scrollAmount = 374;
+
+            nextBtn.addEventListener("click", () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            });
+
+            prevBtn.addEventListener("click", () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+            });
+        }
+    });
+</script>
